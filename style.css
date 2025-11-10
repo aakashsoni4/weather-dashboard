@@ -1,0 +1,237 @@
+ body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+  }
+
+  .container {
+    width: 85%;
+  }
+
+  button a{
+    text-decoration: none;
+    color: white;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  header h1 {
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  button .btn-icon {
+    margin-right: 8px;
+    font-size: 16px;
+  }
+
+  button {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    transition: background 0.7s ease 0.3s;
+  }
+
+  button::before {
+    content: "";
+    position: absolute;
+    bottom: -150%;
+    left: -150%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(
+      45deg,
+      transparent 48%,
+      rgba(255, 255, 255, 0.5) 50%,
+      transparent 52%
+    );
+    opacity: 0;
+    pointer-events: none;
+    transform: skewX(-25deg);
+    z-index: 2;
+  }
+
+  button.hovered::before {
+    animation: peel-diagonal 2s forwards;
+    opacity: 1;
+  }
+
+  button:hover {
+    background: rgba(160, 0, 160, 0.25);
+  }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px 0;
+  }
+
+  .filters input {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    outline: none;
+    font-size: 16px;
+  }
+
+  .dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    gap: 30px;
+    padding-bottom: 40px;
+  }
+
+  .card {
+    --base-color: rgba(255, 255, 255, 0.08);
+    --hover-color: rgba(255, 255, 255, 0.15);
+    --shine-color: rgba(255, 255, 255, 0.5);
+    --border-color: rgba(255, 255, 255, 0.2);
+
+    background: var(--base-color);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+    transition: background 0.7s ease 0s;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    bottom: -150%;
+    left: -150%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(
+      45deg,
+      transparent 48%,
+      var(--shine-color) 50%,
+      transparent 52%
+    );
+    opacity: 0;
+    pointer-events: none;
+    transform: skewX(-25deg);
+    z-index: 2;
+  }
+
+  .card.hovered::before {
+    animation: peel-diagonal 2s forwards;
+    opacity: 1;
+  }
+
+  .card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: var(--border-color);
+    transition: width 0.7s ease 0s;
+  }
+
+  .card:hover {
+    background: var(--hover-color);
+  }
+
+  .card:hover::after {
+    width: 100%;
+  }
+
+  @keyframes peel-diagonal {
+    0% {
+      bottom: -150%;
+      left: -150%;
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      bottom: 150%;
+      left: 150%;
+      opacity: 0;
+    }
+  }
+
+  .card h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .card h2 small {
+    margin-left: 5px;
+    font-weight: normal;
+    opacity: 0.7;
+  }
+
+  .icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 28px;
+  }
+
+  .temp {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 15px 0 10px 0;
+  }
+
+  .feels-like {
+    font-size: 16px;
+    opacity: 0.8;
+    margin-bottom: 15px;
+  }
+
+  .details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    font-size: 14px;
+  }
+
+  .details div {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  button.active {
+    background: rgba(255, 255, 255, 0.25);
+  }

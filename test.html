@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Glass Weather Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>☁ Glass Weather Dashboard</h1>
+      <button id="refreshBtn"><span class="btn-icon"></span><a href="">Refresh Data</a></button>
+    </header>
+
+    <section class="filters">
+      <input type="text" placeholder="Search city..." />
+      <button id="searchBtn"><span class="btn-icon">🔍</span>Search</button>
+      <button class="active" data-filter="all"><span class="btn-icon">🌤</span>All Weather</button>
+      <button data-filter="Clear"><span class="btn-icon">☀️</span>Clear</button>
+      <button data-filter="Clouds"><span class="btn-icon">☁️</span>Cloudy</button>
+      <button data-filter="Rain"><span class="btn-icon">🌧</span>Rainy</button>
+      <button data-filter="Snow"><span class="btn-icon">❄️</span>Snowy</button>
+      <button data-filter="Thunderstorm"><span class="btn-icon">🌩</span>Storms</button>
+    </section>
+
+    <section class="dashboard">
+      <!-- Cards will be loaded here dynamically -->
+    </section>
+  </div>
+
+<script src="main.js"></script>
+</body>
+</html>
